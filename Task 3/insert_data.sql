@@ -2,10 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 17.0
--- Dumped by pg_dump version 17.0
-
--- Started on 2024-12-03 01:14:33
+-- Dumped from database version 17.1
+-- Dumped by pg_dump version 17.1
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -20,8 +18,6 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 5080 (class 0 OID 16390)
--- Dependencies: 218
 -- Data for Name: person; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -80,8 +76,6 @@ COPY public.person (person_id, first_name, last_name, person_number) FROM stdin;
 
 
 --
--- TOC entry 5082 (class 0 OID 16398)
--- Dependencies: 220
 -- Data for Name: adress; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -140,8 +134,6 @@ COPY public.adress (adress_id, person_id, city, zip_code, street) FROM stdin;
 
 
 --
--- TOC entry 5093 (class 0 OID 16478)
--- Dependencies: 231
 -- Data for Name: email; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -200,8 +192,29 @@ COPY public.email (email_id, email) FROM stdin;
 
 
 --
--- TOC entry 5103 (class 0 OID 24577)
--- Dependencies: 241
+-- Data for Name: instructor; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.instructor (instructor_id, person_id, employment_id, available) FROM stdin;
+1	31	1	No
+2	32	2	No
+3	33	3	Yes
+4	34	4	No
+5	35	5	Yes
+6	36	6	Yes
+7	37	7	Yes
+8	38	8	Yes
+9	39	9	Yes
+10	40	10	Yes
+11	41	11	Yes
+12	42	12	Yes
+13	43	13	Yes
+14	44	14	No
+15	45	15	No
+\.
+
+
+--
 -- Data for Name: lesson; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -230,8 +243,6 @@ COPY public.lesson (lesson_id, instructor_id, lesson_code, lesson_type, skill_le
 
 
 --
--- TOC entry 5110 (class 0 OID 24622)
--- Dependencies: 248
 -- Data for Name: ensemble; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -246,8 +257,6 @@ COPY public.ensemble (ensemble_id, lesson_id, genre, min_students, max_students)
 
 
 --
--- TOC entry 5106 (class 0 OID 24594)
--- Dependencies: 244
 -- Data for Name: groups; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -263,8 +272,6 @@ COPY public.groups (lesson_id, instrument_type, groups_id, max_students, min_stu
 
 
 --
--- TOC entry 5086 (class 0 OID 16424)
--- Dependencies: 224
 -- Data for Name: guardian; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -278,8 +285,6 @@ COPY public.guardian (guardian_id, person_id) FROM stdin;
 
 
 --
--- TOC entry 5084 (class 0 OID 16409)
--- Dependencies: 222
 -- Data for Name: student; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -318,8 +323,6 @@ COPY public.student (student_id, person_id, enrollment_id) FROM stdin;
 
 
 --
--- TOC entry 5091 (class 0 OID 16462)
--- Dependencies: 229
 -- Data for Name: guardian_student; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -338,8 +341,6 @@ COPY public.guardian_student (student_id, guardian_id, relationship) FROM stdin;
 
 
 --
--- TOC entry 5108 (class 0 OID 24609)
--- Dependencies: 246
 -- Data for Name: individual; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -355,33 +356,6 @@ COPY public.individual (individual_id, lesson_id, instrument_type) FROM stdin;
 
 
 --
--- TOC entry 5088 (class 0 OID 16439)
--- Dependencies: 226
--- Data for Name: instructor; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
-COPY public.instructor (instructor_id, person_id, employment_id, available) FROM stdin;
-1	31	1	No
-2	32	2	No
-3	33	3	Yes
-4	34	4	No
-5	35	5	Yes
-6	36	6	Yes
-7	37	7	Yes
-8	38	8	Yes
-9	39	9	Yes
-10	40	10	Yes
-11	41	11	Yes
-12	42	12	Yes
-13	43	13	Yes
-14	44	14	No
-15	45	15	No
-\.
-
-
---
--- TOC entry 5090 (class 0 OID 16452)
--- Dependencies: 228
 -- Data for Name: instructor_skill; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -425,8 +399,6 @@ COPY public.instructor_skill (instructor_skill_id, instructor_id, instrument_typ
 
 
 --
--- TOC entry 5099 (class 0 OID 16520)
--- Dependencies: 237
 -- Data for Name: instrument; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -445,8 +417,6 @@ COPY public.instrument (instrument_id, instrument_serial_number, instrument_type
 
 
 --
--- TOC entry 5105 (class 0 OID 24583)
--- Dependencies: 243
 -- Data for Name: lesson_price; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -475,8 +445,6 @@ COPY public.lesson_price (lesson_price_id, lesson_id, price) FROM stdin;
 
 
 --
--- TOC entry 5111 (class 0 OID 24653)
--- Dependencies: 249
 -- Data for Name: lesson_students; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -534,8 +502,6 @@ COPY public.lesson_students (lesson_id, student_id) FROM stdin;
 
 
 --
--- TOC entry 5097 (class 0 OID 16504)
--- Dependencies: 235
 -- Data for Name: person_email; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -594,8 +560,6 @@ COPY public.person_email (person_id, email_id) FROM stdin;
 
 
 --
--- TOC entry 5095 (class 0 OID 16484)
--- Dependencies: 233
 -- Data for Name: phone; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -654,8 +618,6 @@ COPY public.phone (phone_id, phone) FROM stdin;
 
 
 --
--- TOC entry 5096 (class 0 OID 16489)
--- Dependencies: 234
 -- Data for Name: person_phone; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -714,8 +676,6 @@ COPY public.person_phone (person_id, phone_id) FROM stdin;
 
 
 --
--- TOC entry 5101 (class 0 OID 16528)
--- Dependencies: 239
 -- Data for Name: rented_instrument; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -729,8 +689,6 @@ COPY public.rented_instrument (rented_instrument_id, instrument_id, student_id, 
 
 
 --
--- TOC entry 5118 (class 0 OID 0)
--- Dependencies: 219
 -- Name: adress_adress_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -738,8 +696,6 @@ SELECT pg_catalog.setval('public.adress_adress_id_seq', 50, true);
 
 
 --
--- TOC entry 5119 (class 0 OID 0)
--- Dependencies: 230
 -- Name: email_email_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -747,8 +703,6 @@ SELECT pg_catalog.setval('public.email_email_id_seq', 50, true);
 
 
 --
--- TOC entry 5120 (class 0 OID 0)
--- Dependencies: 247
 -- Name: ensamble_ensamble_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -756,8 +710,6 @@ SELECT pg_catalog.setval('public.ensamble_ensamble_id_seq', 6, true);
 
 
 --
--- TOC entry 5121 (class 0 OID 0)
--- Dependencies: 250
 -- Name: groups_groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -765,8 +717,6 @@ SELECT pg_catalog.setval('public.groups_groups_id_seq', 13, true);
 
 
 --
--- TOC entry 5122 (class 0 OID 0)
--- Dependencies: 223
 -- Name: guardian_guardian_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -774,8 +724,6 @@ SELECT pg_catalog.setval('public.guardian_guardian_id_seq', 5, true);
 
 
 --
--- TOC entry 5123 (class 0 OID 0)
--- Dependencies: 245
 -- Name: individual_individual_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -783,8 +731,6 @@ SELECT pg_catalog.setval('public.individual_individual_id_seq', 7, true);
 
 
 --
--- TOC entry 5124 (class 0 OID 0)
--- Dependencies: 225
 -- Name: instructor_instructor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -792,8 +738,6 @@ SELECT pg_catalog.setval('public.instructor_instructor_id_seq', 15, true);
 
 
 --
--- TOC entry 5125 (class 0 OID 0)
--- Dependencies: 227
 -- Name: instructor_skill_instructor_skill_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -801,8 +745,6 @@ SELECT pg_catalog.setval('public.instructor_skill_instructor_skill_id_seq', 37, 
 
 
 --
--- TOC entry 5126 (class 0 OID 0)
--- Dependencies: 236
 -- Name: instrument_instrument_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -810,8 +752,6 @@ SELECT pg_catalog.setval('public.instrument_instrument_id_seq', 10, true);
 
 
 --
--- TOC entry 5127 (class 0 OID 0)
--- Dependencies: 240
 -- Name: lesson_lesson_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -819,8 +759,6 @@ SELECT pg_catalog.setval('public.lesson_lesson_id_seq', 20, true);
 
 
 --
--- TOC entry 5128 (class 0 OID 0)
--- Dependencies: 242
 -- Name: lesson_price_lesson_price_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -828,8 +766,6 @@ SELECT pg_catalog.setval('public.lesson_price_lesson_price_id_seq', 20, true);
 
 
 --
--- TOC entry 5129 (class 0 OID 0)
--- Dependencies: 217
 -- Name: person_person_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -837,8 +773,6 @@ SELECT pg_catalog.setval('public.person_person_id_seq', 50, true);
 
 
 --
--- TOC entry 5130 (class 0 OID 0)
--- Dependencies: 232
 -- Name: phone_phone_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -846,8 +780,6 @@ SELECT pg_catalog.setval('public.phone_phone_id_seq', 50, true);
 
 
 --
--- TOC entry 5131 (class 0 OID 0)
--- Dependencies: 238
 -- Name: rented_instrument_rented_instrument_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -855,15 +787,11 @@ SELECT pg_catalog.setval('public.rented_instrument_rented_instrument_id_seq', 9,
 
 
 --
--- TOC entry 5132 (class 0 OID 0)
--- Dependencies: 221
 -- Name: student_student_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.student_student_id_seq', 30, true);
 
-
--- Completed on 2024-12-03 01:14:33
 
 --
 -- PostgreSQL database dump complete
